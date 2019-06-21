@@ -8,3 +8,13 @@ import Dashboard from './Dashboard';
 it('renders without crashing', () => {
   render(<Dashboard />)
 });
+
+it('displays buttons needed', () => {
+  let { getByText } = render(<Dashboard />)
+
+  let strike = getByText(/strike/i)
+  let ball = getByText(/ball/i)
+  let foul = getByText(/foul/i)
+  let hit = getByText(/hit/i)
+
+});
