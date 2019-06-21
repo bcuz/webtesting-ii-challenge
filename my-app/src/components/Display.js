@@ -4,8 +4,11 @@ function Display(props) {
 
   let { ball = 0, strike = 0 } = props
 
-    return (
+  if (ball === 0 && strike === 0) {
+    return <h3>play ball!</h3>
+  }
 
+    return (
       <div>
         {/* <h2>Balls</h2>
         <p>{ball}</p>

@@ -8,3 +8,11 @@ import Display from './Display';
 it('renders without crashing', () => {
   render(<Display />)
 });
+
+it('display default message with 0 balls, 0 strikes', () => {
+  let { getByText, queryByText } = render(<Display />)
+
+  let message = queryByText(/play ball/i)
+
+  expect(message).toBeInTheDocument()
+});
