@@ -10,10 +10,8 @@ function Display(props) {
 
     return (
       <div>
-        {/* <h2>Balls</h2>
-        <p>{ball}</p>
-        <h2>strikes</h2>
-        <p>{strike}</p> */}
+        <p>balls: {ball}</p>
+        <p>strikes: {strike}</p>
       </div>
 
   )
