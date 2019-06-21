@@ -4,7 +4,7 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div>
-        <button>strike</button>
+        <button onClick={this.props.handleStrike} >strike</button>
         <button>ball</button>
         <button>foul</button>
         <button>hit</button>

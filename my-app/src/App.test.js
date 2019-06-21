@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 // replaces afterEach(rtl.cleanup);
 import '@testing-library/react/cleanup-after-each'
 import 'jest-dom/extend-expect';
@@ -17,10 +17,14 @@ it('display default message with 0 balls, 0 strikes', () => {
   expect(message).toBeInTheDocument()
 });
 
-// it('starts with 0 balls, 0 strikes', () => {
-//   let { getByText, queryByText } = render(<App />)
+it('registers a strike', () => {
+  let { getByText, queryByText } = render(<App />)
+  
+  let button = getByText(/strike/i)
 
-//   let balls = queryByText(/balls: 0/i)
+  fireEvent.click(button)
 
-//   expect(balls).toBeInTheDocument()
-// });
+  let strikes = queryByText(/strikes: 1/i)
+
+  expect(strikes).toBeInTheDocument()
+});
