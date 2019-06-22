@@ -22,6 +22,7 @@ it('default display of 0 balls, 0 strikes', () => {
 it('registers a strike', () => {
   let { getByText, queryByText } = render(<App />)
 
+  // using \b to make sure it doesnt select strikes
   let button = getByText(/\bstrike\b/i)
 
   fireEvent.click(button)
@@ -73,6 +74,27 @@ it('strikes and balls reset to 0 at 4 balls', () => {
   fireEvent.click(buttonBall)
   fireEvent.click(buttonBall)
   fireEvent.click(buttonBall)
+
+  let strikes = queryByText(/strikes: 0/i)
+  let balls = queryByText(/balls: 0/i)
+
+  expect(strikes).toBeInTheDocument()
+  expect(balls).toBeInTheDocument()
+});
+
+it('strikes and balls reset on a hit', () => {
+  let { getByText, queryByText } = render(<App />)
+  
+  let buttonStrike = getByText(/\bstrike\b/i)
+  let buttonBall = getByText(/\bball\b/i)
+  let buttonHit = getByText(/\bhit\b/i)
+
+  fireEvent.click(buttonStrike)
+  fireEvent.click(buttonStrike)
+  fireEvent.click(buttonBall)
+  fireEvent.click(buttonBall)
+  fireEvent.click(buttonBall)
+  fireEvent.click(buttonHit)
 
   let strikes = queryByText(/strikes: 0/i)
   let balls = queryByText(/balls: 0/i)

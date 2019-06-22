@@ -30,11 +30,15 @@ class App extends React.Component {
     }
   }
 
+  handleHit = () => {
+    this.setState({strike: 0, ball: 0})
+  }
+
   render() {
     return (
       <div>
         <Display ball={this.state.ball} strike={this.state.strike} />
-        <Dashboard handleStrike={this.handleStrike} handleBall={this.handleBall} />
+        <Dashboard handleStrike={this.handleStrike} handleBall={this.handleBall} handleHit={this.handleHit} />
       </div>
 
     )
