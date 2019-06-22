@@ -102,3 +102,15 @@ it('strikes and balls reset on a hit', () => {
   expect(strikes).toBeInTheDocument()
   expect(balls).toBeInTheDocument()
 });
+
+it('registers a foul', () => {
+  let { getByText, queryByText } = render(<App />)
+
+  let button = getByText(/\bfoul\b/i)
+
+  fireEvent.click(button)
+
+  let strikes = queryByText(/strikes: 2/i)
+
+  expect(strikes).toBeInTheDocument()
+});

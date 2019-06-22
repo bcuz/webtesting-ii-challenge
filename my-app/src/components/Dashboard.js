@@ -6,7 +6,7 @@ class Dashboard extends React.Component {
       <div>
         <button onClick={this.props.handleStrike} >strike</button>
         <button onClick={this.props.handleBall} >ball</button>
-        <button>foul</button>
+        <button onClick={this.props.handleFoul}>foul</button>
         <button onClick={this.props.handleHit}>hit</button>
       </div>
     
