@@ -11,9 +11,13 @@ class App extends React.Component {
 
   handleStrike = () => {
 
-    this.setState(prevState => {
-      return {strike: prevState.strike + 1}
-   })
+    if (this.state.strike < 2) {
+      this.setState(prevState => {
+        return {strike: prevState.strike + 1}
+     })
+    } else {
+      this.setState({strike: 0, ball: 0})
+    }
   }
 
   render() {
