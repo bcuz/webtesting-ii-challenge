@@ -114,3 +114,17 @@ it('registers a foul', () => {
 
   expect(strikes).toBeInTheDocument()
 });
+
+it('foul doesnt increase strikes past 2', () => {
+  let { getByText, queryByText } = render(<App />)
+
+  let button = getByText(/\bfoul\b/i)
+
+  fireEvent.click(button)
+  fireEvent.click(button)
+  fireEvent.click(button)
+
+  let strikes = queryByText(/strikes: 2/i)
+
+  expect(strikes).toBeInTheDocument()
+});

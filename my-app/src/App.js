@@ -35,8 +35,14 @@ class App extends React.Component {
   }
 
   handleFoul = () => {
+
     this.setState(prevState => {
-      return {strike: prevState.strike + 2}
+
+      if (prevState.strike === 0) {
+        return {strike: prevState.strike + 2}
+      } else if (prevState.strike === 1) {
+        return {strike: prevState.strike + 1}
+      }
    })
   }
 
