@@ -20,11 +20,17 @@ class App extends React.Component {
     }
   }
 
+  handleBall = () => {
+    this.setState(prevState => {
+      return {ball: prevState.ball + 1}
+   })
+  }
+
   render() {
     return (
       <div>
         <Display ball={this.state.ball} strike={this.state.strike} />
-        <Dashboard handleStrike={this.handleStrike} />
+        <Dashboard handleStrike={this.handleStrike} handleBall={this.handleBall} />
       </div>
 
     )
