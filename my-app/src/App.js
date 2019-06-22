@@ -21,9 +21,13 @@ class App extends React.Component {
   }
 
   handleBall = () => {
-    this.setState(prevState => {
-      return {ball: prevState.ball + 1}
-   })
+    if (this.state.ball < 3) {
+      this.setState(prevState => {
+        return {ball: prevState.ball + 1}
+      })
+    } else {
+      this.setState({strike: 0, ball: 0})
+    }
   }
 
   render() {
