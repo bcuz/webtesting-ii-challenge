@@ -9,18 +9,20 @@ it('renders without crashing', () => {
   render(<App />)
 });
 
-it('display default message with 0 balls, 0 strikes', () => {
+it('default display of 0 balls, 0 strikes', () => {
   let { getByText, queryByText } = render(<App />)
 
-  let message = queryByText(/play ball/i)
+  let strikes = queryByText(/strikes: 0/i)
+  let balls = queryByText(/balls: 0/i)
 
-  expect(message).toBeInTheDocument()
+  expect(strikes).toBeInTheDocument()
+  expect(balls).toBeInTheDocument()
 });
 
 it('registers a strike', () => {
   let { getByText, queryByText } = render(<App />)
-  
-  let button = getByText(/strike/i)
+
+  let button = getByText(/\bstrike\b/i)
 
   fireEvent.click(button)
 
@@ -28,3 +30,17 @@ it('registers a strike', () => {
 
   expect(strikes).toBeInTheDocument()
 });
+
+// it('strikes reset to 0 at 3 strikes', () => {
+//   let { getByText, queryByText } = render(<App />)
+  
+//   let button = getByText(/\bstrike\b/i)
+
+//   fireEvent.click(button)
+//   fireEvent.click(button)
+//   fireEvent.click(button)
+
+//   let strikes = queryByText(/strikes: 0/i)
+
+//   expect(strikes).toBeInTheDocument()
+// });

@@ -9,10 +9,12 @@ it('renders without crashing', () => {
   render(<Display />)
 });
 
-it('display default message with 0 balls, 0 strikes', () => {
+it('default display of 0 balls, 0 strikes', () => {
   let { getByText, queryByText } = render(<Display />)
 
-  let message = queryByText(/play ball/i)
+  let strikes = queryByText(/strikes: 0/i)
+  let balls = queryByText(/balls: 0/i)
 
-  expect(message).toBeInTheDocument()
+  expect(strikes).toBeInTheDocument()
+  expect(balls).toBeInTheDocument()
 });
