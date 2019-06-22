@@ -35,14 +35,18 @@ it('strikes and balls reset to 0 at 3 strikes', () => {
   let { getByText, queryByText } = render(<App />)
   
   let button = getByText(/\bstrike\b/i)
+  let button1 = getByText(/\bball\b/i)
 
   fireEvent.click(button)
   fireEvent.click(button)
+  fireEvent.click(button1)
   fireEvent.click(button)
 
   let strikes = queryByText(/strikes: 0/i)
+  let balls = queryByText(/balls: 0/i)
 
   expect(strikes).toBeInTheDocument()
+  expect(balls).toBeInTheDocument()
 });
 
 it('registers a ball', () => {
