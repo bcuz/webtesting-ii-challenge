@@ -110,7 +110,7 @@ it('registers a foul', () => {
 
   fireEvent.click(button)
 
-  let strikes = queryByText(/strikes: 2/i)
+  let strikes = queryByText(/strikes: 1/i)
 
   expect(strikes).toBeInTheDocument()
 });

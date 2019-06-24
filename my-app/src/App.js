@@ -38,9 +38,7 @@ class App extends React.Component {
 
     this.setState(prevState => {
 
-      if (prevState.strikes === 0) {
-        return {strikes: prevState.strikes + 2}
-      } else if (prevState.strikes === 1) {
+      if (prevState.strikes < 2) {
         return {strikes: prevState.strikes + 1}
       }
    })
